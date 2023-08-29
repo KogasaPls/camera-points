@@ -265,7 +265,12 @@ class CameraPointPanel extends JPanel
 
         JComboBox<Direction> directionBox = new JComboBox<>(Direction.values());
         directionBox.setToolTipText("Compass direction");
-        directionBox.setSelectedIndex(point.getDirection().getValue());
+
+        Direction direction = point.getDirection();
+        if (direction != null) {
+            directionBox.setSelectedIndex(direction.getValue());
+        }
+
         directionBox.setPreferredSize(new Dimension(0, 20));
         directionBox.addActionListener(e ->
         {
